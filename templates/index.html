@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block head %}
+
+<title>Search Page</title>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+{% endblock %}
+
+{% block body %}
+<div class="content">
+     
+
+
+ 
+
+<div class="table-users">
+    <div class="header">Ineuron Courses</div>
+ 
+    <table cellspacing="0">
+       <tr>
+          <th>Course</th>
+          <th>Category</th>
+          <th>Subject</th>
+          <th>Description</th>
+          <th>Learn</th>
+          <th>Timing</th>
+          <th>Features</th>
+          <th>Requirements</th>
+          <th>Curriculum</th>
+          <th>Mentors</th>
+          
+       </tr>
+       {% for course in courses %}
+       <tr>
+           <td>{{course.courses}}</td>
+           <td>{{course.categories}}</td>
+           <td>{{course.subject}}</td>
+           <td>{{course.descriptions}}</td>
+           <td>
+
+            {% for l in course.learn %}
+            {{l}},
+            {% endfor %}
+           </td>
+           <td>{{course.timing}}</td>
+           <td>{{course.course_features}}</td>
+           <td>{{course.requirements[0]}}</td>
+           <td>{{course.curriculum}}</td>
+           <td>{{course.mentors}}</td>
+          
+        {% endfor %}
+    </table>
+ </div>
+</div>
+{% endblock %}
