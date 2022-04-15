@@ -12,7 +12,7 @@ class MongoDBHandler:
         Class is used to interact with the Monogb database
     """
     def __init__(self) -> None:
-        self.__client =  pymongo.MongoClient("mongodb+srv://admin:admin123@cluster0.tsqtv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority")
+        self.__client =  pymongo.MongoClient("")
         self.db = self.__client["ineuron"]
         self.collection = self.db['courses']
 
