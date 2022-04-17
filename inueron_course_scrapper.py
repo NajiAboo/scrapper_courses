@@ -10,7 +10,7 @@ from urllib.request import urlopen as uReq
 from inueron_course_handler import CourseHandler
 from inueron_detail_scrapper import CourseDetailScrapper
 from mongodb_handler import MongoDBHandler
-
+import urllib.parse
 from util import to_json,get_page,get_page_html
 
 
@@ -140,6 +140,9 @@ class InueronCourseScrapper:
             logger.error(ex)
 
  
+link = "https://ineuron.ai/"
+parsed_url = urllib.parse.urlparse('https://ineuron.ai/')
+finalurl = f"{parsed_url.scheme}://courses.{parsed_url.netloc}"
 
-scrapper = InueronCourseScrapper("https://courses.ineuron.ai/")
+scrapper = InueronCourseScrapper(finalurl)
 scrapper.scrap()
